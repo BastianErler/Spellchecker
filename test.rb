@@ -8,13 +8,13 @@ ES_text = 'Muschos países se ressisten a Uber, especialmente en Europa y en su 
 EN_text = 'Mr. Kalanick, a famously competitiveand aggresive entreprneur, had apparentli studied these risks and semed determined to bridge that gulf. He wuld try to take on China not as an afterthoght, but as a central mission of his fledgling company. He would risk billions and spend a great deal of time in China to figure out the secrets of winning there. The goal seemed lofty, but the opportunity, after all, was eye-popping: Amazon has a market value of $365 billion, and Alibaba is worth about $200 billion. The ride-hailing business might one day grow to be as valuable as e-commerce, if not larger — and wouldn’t it be fantastic if you could own it all, everywhere?'
 FR_text = 'Les perturbatyons sont purtant toujours bien présentes. Mardi matin, 17 vols au départ de Paris étaient annoncés annulés avant midi : 4 depuis Orly et 13 depuis Paris-Charles-de-Gaulle. Le sud de lEurope est particulièrement touché avec plusiurs suppressions de vols à destination de Lisbonne, Barcelone, Milan et Venise. Pour les vols intérieurs, les départs pour Nice et Lyon sont les plus impactés avec deux avions annulés pour chacune des deux destinations.'
 NL_text = 'Door werkzamheden an het spoor is er de hele dag beperkt trainverkeer mogelijk richting Schiphol. Het spoor tussen Duivendrecht en Schiphol wordt verdubeld om ruimte te macen voor meer treinen. "Gezien de situatie op de weg rond Schiphol is het voor reizigers van groot belang om vóór vertrek de reisplanner van NS te checken", meldt ProRail. '
-language = "NL" #DE, ES, EN, FR, NL                   language [String] The language to use for user interface strings. Specify the language using the ISO 639-1 2-letter language code. 
-mkt = "nl-NL" #de-DE, es-ES, en-EN, fr-FR, nl-NL      mkt [String] The market where the results come from. Typically, this is the country where the user is making the request from; however, it could be a different country if the user is not located in a country where Bing delivers results. The market must be in the form <language code>-<country code>. For example, en-US. The string is case insensitive. For a list of possible values that you may specify, see Market Codes.
+language = "DE" #DE, ES, EN, FR, NL                   language [String] The language to use for user interface strings. Specify the language using the ISO 639-1 2-letter language code. 
+mkt = "de-DE" #de-DE, es-ES, en-EN, fr-FR, nl-NL      mkt [String] The market where the results come from. Typically, this is the country where the user is making the request from; however, it could be a different country if the user is not located in a country where Bing delivers results. The market must be in the form <language code>-<country code>. For example, en-US. The string is case insensitive. For a list of possible values that you may specify, see Market Codes.
 de_tokenizer = Tokenizer::WhitespaceTokenizer.new
 
 #text in tokens zerlgen
 tokens = []
-de_tokenizer.tokenize(NL_text).each do |i|
+de_tokenizer.tokenize(DE_text).each do |i|
 	tokens.push(i)
 end
 token = ""
