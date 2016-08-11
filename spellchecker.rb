@@ -77,7 +77,7 @@ class Spellchecker
 			# Request headers
 			request['Content-Type'] = 'String'
 			# Request headers
-			request['Ocp-Apim-Subscription-Key'] = '9337f74675eb47a1900ce6b43212985c'
+			request['Ocp-Apim-Subscription-Key'] = '************************************'
 			# Request body
 			#request.body = "{body}"
 
