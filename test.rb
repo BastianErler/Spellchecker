@@ -10,46 +10,14 @@ FR_text = 'Les perturbatyons sont purtant toujours bien présentes. Mardi matin,
 NL_text = 'Door werkzamheden an het spoor is er de hele dag beperkt trainverkeer mogelijk richting Schiphol. Het spoor tussen Duivendrecht en Schiphol wordt verdubeld om ruimte te macen voor meer treinen. "Gezien de situatie op de weg rond Schiphol is het voor reizigers van groot belang om vóór vertrek de reisplanner van NS te checken", meldt ProRail. '
 language = "DE" #DE, ES, EN, FR, NL                   language [String] The language to use for user interface strings. Specify the language using the ISO 639-1 2-letter language code. 
 mkt = "de-DE" #de-DE, es-ES, en-EN, fr-FR, nl-NL      mkt [String] The market where the results come from. Typically, this is the country where the user is making the request from; however, it could be a different country if the user is not located in a country where Bing delivers results. The market must be in the form <language code>-<country code>. For example, en-US. The string is case insensitive. For a list of possible values that you may specify, see Market Codes.
-de_tokenizer = Tokenizer::WhitespaceTokenizer.new
 
-#text in tokens zerlgen
-tokens = []
-de_tokenizer.tokenize(DE_text).each do |i|
-	tokens.push(i)
+checked = Spellchecker.new(DE_text,mkt,language)
+puts DE_text                                                                      # zu checkender string
+puts ""                                                                     # leerzeile
+checked.array.each do |i|                                                   # 
+	puts i[0].to_s + " " +  i[1].to_s + " " + i[2].to_s + " " + i[3].to_s   # [position, wrong word, right word, score]
+	puts ""                                                                 # leerzeile
 end
-token = ""
-word = 1
-checking_tokens = []
-tokenized = false
-
-#9 tokens zu einem string verbinden diesen in array einfügen
-tokens.each do |i|
-	tokenized = false
-	token = token + " " + i.to_s
-	word += 1
-	if word == 9
-		checking_tokens.push(token)
-		word = 1
-		token = ""
-		tokenized = true
-	end
-end
-
-#restlichen wörter anzahl < 9 in array einfügen
-if tokenized == false
-	checking_tokens.push(token)
-end
-
-# jeden 9er string durch den Spellchecker laufen lassen und ausgeben
-checking_tokens.each do |i|
-	checked = Spellchecker.new(i,mkt,language)
-	puts i                                                                      # zu checkender string
-	puts ""                                                                     # leerzeile
-	checked.array.each do |i|                                                   # 
-		puts i[0].to_s + " " +  i[1].to_s + " " + i[2].to_s + " " + i[3].to_s   # [position, wrong word, right word, score]
-		puts ""                                                                 # leerzeile
-	end
-	puts checked.str                                                            # checked string
-	puts ""                                                                     # leerzeile
-	puts "_____________________________________________________________________"
-end
+puts checked.str                                                            # checked string
+puts ""                                                                     # leerzeile
+puts "_____________________________________________________________________"
